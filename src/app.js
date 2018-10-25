@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const PORT = 3000;
+
 
 // Carrega as rotas
 const index = require('./routes/indexRoute');
@@ -21,7 +21,6 @@ app.use('/', index);
 app.use('/products', product);
 
 
-app.set('port', PORT);
 module.exports = app;
 
 
