@@ -3,10 +3,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-
-=======
->>>>>>> bc6707dfcc2c02a804ed6a2ddf3dcf87192396b6
 
 // Carrega as rotas
 const index = require('./routes/indexRoute');
@@ -23,10 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', index);
 app.use('/products', product);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> bc6707dfcc2c02a804ed6a2ddf3dcf87192396b6
 module.exports = app;
 
 
