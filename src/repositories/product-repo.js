@@ -1,16 +1,15 @@
 'use strict';
 
-const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
+const Product = require('../models/product');
 
-exports.get = () => {
+exports.get = async () => {
     return Product
         .find({
             active: true
         }, 'title price slug');
 }
 
-exports.getBySlug = (slug) => {
+exports.getBySlug = async (slug) => {
     return Product
         .findOne({
             active: true,
@@ -18,12 +17,11 @@ exports.getBySlug = (slug) => {
         }, 'title description price slug tags');
 }
 
-exports.getById = (id) => {
-    return Product
-        .findById(id);
+exports.getById = async (id) => {
+    return Product.findById(id);
 }
 
-exports.getByTag = (tag) => {
+exports.getByTag = async (tag) => {
     return Product
         .find({
             tags: tag,
@@ -31,12 +29,12 @@ exports.getByTag = (tag) => {
         }, 'title description price slug tags')
 }
 
-exports.create = (data) => {
+exports.create = async (data) => {
     var product = new Product(data);
     return product.save();
 }
 
-exports.update = (id, data) => {
+exports.update = async (id, data) => {
     const updateJson = {
         title: data.title,
         description: data.description,
@@ -48,6 +46,6 @@ exports.update = (id, data) => {
     );
 }
 
-exports.delete = (id) => {
+exports.delete = async (id) => {
     return Product.findByIdAndDelete(id);
 }
