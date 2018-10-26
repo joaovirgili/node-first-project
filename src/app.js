@@ -5,8 +5,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // Carrega as rotas
-const index = require('./routes/indexRoute');
-const product = require('./routes/productsRoute');
+const index = require('./routes/index-route');
+const product = require('./routes/products-route');
+const costumer = require('./routes/costumer-route');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', index);
 app.use('/products', product);
+app.use('/costumers', costumer);
 
 module.exports = app;
 
