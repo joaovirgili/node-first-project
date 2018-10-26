@@ -7,10 +7,9 @@ const PORT = 3000;
 
 app.set('port', PORT);
 
-app.set('port', PORT);
-
 server.listen(PORT);
 server.on('error', onError);
+
 console.log("Server running at port " + PORT);
 
 function onError(error) {
