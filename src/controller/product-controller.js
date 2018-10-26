@@ -63,7 +63,6 @@ exports.getByTag = async (req, res, next) => {
 exports.post = async (req, res, next) => {
     try {
         const data = await repository.create(req.body);
-        console.log('Post :', data);
         res.status(201).send({ message: "Produto cadastrado com sucesso." });
     } catch (e) {
         res.status(400).send({ message: "Falha ao cadastrar o produto.", data: e });

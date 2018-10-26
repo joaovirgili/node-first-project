@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     costumer: {
-        type: mongoose.scheam.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Costumer',
     },
     number: {
@@ -34,7 +34,7 @@ const schema = new Schema({
             required: true
         },
         product: {
-            type: mongoose.scheam.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
         },
     }],
