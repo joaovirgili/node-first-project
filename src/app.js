@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // Carrega as rotas
 const index = require('./routes/index-route');
 const product = require('./routes/products-route');
-const costumer = require('./routes/costumer-route');
+const customer = require('./routes/customer-route');
 const order = require('./routes/order-route');
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', index);
 app.use('/products', product);
-app.use('/costumers', costumer);
+app.use('/customers', customer);
 app.use('/orders', order);
 
 module.exports = app;

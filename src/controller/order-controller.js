@@ -6,9 +6,8 @@ const guid = require('guid');
 
 exports.post = async (req, res, next) => {
     try {
-        // console.log(req.body.costumer);
         await repository.create({
-            costumer: req.body.costumer,
+            customer: req.body.customer,
             number: guid.raw().substring(0,6),
             items: req.body.items,
         });

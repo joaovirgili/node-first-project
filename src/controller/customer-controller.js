@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../repositories/costumer-repo');
+const repository = require('../repositories/customer-repo');
 const ERROR = "Falha ao processar a requisição.";
 
 exports.post = async (req, res, next) => {
@@ -14,8 +14,8 @@ exports.post = async (req, res, next) => {
 
 exports.get = async (req, res, next) => {
     try {
-        const costumers = await repository.get();
-        res.status(200).send(costumers)
+        const customers = await repository.get();
+        res.status(200).send(customers)
     } catch (e) {
         res.status(400).send({ message: ERROR, data: e });
     }

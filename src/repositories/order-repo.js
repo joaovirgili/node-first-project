@@ -4,7 +4,7 @@ const Order = require('../models/order');
 
 exports.get = async () => {
     return Order.find({}, 'number status')
-        .populate('costumer', 'name')
+        .populate('customer', 'name')
         .populate('items.product', 'title');
 }
 
