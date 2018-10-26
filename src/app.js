@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 // Carrega as rotas
 const index = require('./routes/index-route');
@@ -13,7 +14,7 @@ const order = require('./routes/order-route');
 const app = express();
 
 // Conecta ao banco
-mongoose.connect('mongodb://master:master123@ds141633.mlab.com:41633/node-store');
+mongoose.connect(config.connectionString);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
