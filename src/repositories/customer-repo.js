@@ -10,3 +10,10 @@ exports.create = async (data) => {
 exports.get = async () => {
     return Customer.find({});
 }
+
+exports.authenticate = async (data) => {
+    return await Customer.findOne({
+        email: data.email,
+        password: data.password,
+    });
+}
