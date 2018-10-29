@@ -80,8 +80,9 @@ exports.put = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
     try {
-        await repository.delete(req.body.id);
-        res.status(200).send({ message: "Produto deletado com sucesso." })
+        const deleted = await repository.delete(req.body.id);
+        const msg = deleted ? "Produto deletado com sucesso." : "Produto não encontrado";
+            res.status(200).send({ message: msg })
     } catch (e) {
         res.status(400).send({ message: "Não foi possível deletar o produto." })
     }
