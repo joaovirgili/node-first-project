@@ -34,6 +34,7 @@ exports.authenticate = async (req, res, next) => {
             password: md5(req.body.password + global.SALT_KEY),
         });
         const token = await authService.generateToken({
+            id: customer._id,
             email: customer.email,
             name: customer.name
         });
