@@ -3,11 +3,14 @@
 const repository = require('../repositories/order-repo');
 const ERROR = "Falha ao processar a requisição.";
 const guid = require('guid');
+const authServices = require('../services/auth-service');
 
 exports.post = async (req, res, next) => {
     try {
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+        const data = await authServices.decodeToken(token);
         await repository.create({
-            customer: req.body.customer,
+            customer: data.id,
             number: guid.raw().substring(0,6),
             items: req.body.items,
         });
